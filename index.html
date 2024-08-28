@@ -12,6 +12,7 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            padding-top: 70px;
         }
         .container {
             max-width: 1000px;
@@ -163,6 +164,28 @@
             border: none;
             display: none;
         }
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: #ffffff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+        .fixed-header .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .fixed-header .language-selector {
+            position: static;
+        }
         @media screen and (max-width: 768px) {
             .dropdown {
                 display: none;
@@ -185,8 +208,9 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="language-selector"><!--p>fanovana fiteny ny pejy</p>
+    <header class="fixed-header">
+        <img src="votre-photo.jpg" alt="John Doe" class="logo">
+        <div class="language-selector">
             <div class="dropdown">
                 <button class="dropbtn">Langue</button>
                 <div class="dropdown-content">
@@ -197,6 +221,9 @@
             </div>
             <button class="openbtn" onclick="openNav()">☰ Langue</button>
         </div>
+    </header>
+
+    <header>
         <div class="container profile-container">
             <img src="votre-photo.jpg" alt="John Doe" class="profile-photo">
             <div class="profile-text">
@@ -306,3 +333,5 @@
             changeLanguage('fr');
         });
     </script>
+</body>
+</html>
