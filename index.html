@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - Portfolio</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: #ffffff;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+        }
+        .profile-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            object-fit: cover;
+        }
+        .profile-text {
+            margin-left: 30px;
+            text-align: left;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .tagline {
+            font-size: 1.2em;
+            font-style: italic;
+        }
+        .section {
+            background-color: #ffffff;
+            margin: 20px 0;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .skills-list {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .skills-list li {
+            background-color: #3498db;
+            color: #ffffff;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .contact-item {
+            margin: 10px;
+            text-align: center;
+        }
+        .language-selector {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropbtn {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {background-color: #f1f1f1}
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown:hover .dropbtn {
+            background-color: #2980b9;
+        }
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #111;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            display: none;
+        }
+        @media screen and (max-width: 768px) {
+            .dropdown {
+                display: none;
+            }
+            .openbtn {
+                display: block;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+            .profile-container {
+                flex-direction: column;
+            }
+            .profile-text {
+                margin-left: 0;
+                margin-top: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="language-selector"><!--p>fanovana fiteny ny pejy</p>
+            <div class="dropdown">
+                <button class="dropbtn">Langue</button>
+                <div class="dropdown-content">
+                    <a href="#" onclick="changeLanguage('fr')">Français</a>
+                    <a href="#" onclick="changeLanguage('en')">English</a>
+                    <a href="#" onclick="changeLanguage('mg')">Malagasy</a>
+                </div>
+            </div>
+            <button class="openbtn" onclick="openNav()">☰ Langue</button>
+        </div>
+        <div class="container profile-container">
+            <img src="votre-photo.jpg" alt="John Doe" class="profile-photo">
+            <div class="profile-text">
+                <h1>John Doe</h1>
+                <p class="tagline" data-fr="Aspirant en Informatique | Apprenant Passionné | Résolveur de Problèmes"
+                   data-en="Aspiring Informatician | Passionate Learner | Problem Solver"
+                   data-mg="Mpianatra Informatika | Tia Fianarana | Mpamaha Olana">Aspirant en Informatique | Apprenant Passionné | Résolveur de Problèmes</p>
+            </div>
+        </div>
+    </header>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="#" onclick="changeLanguage('fr'); closeNav();">Français</a>
+        <a href="#" onclick="changeLanguage('en'); closeNav();">English</a>
+        <a href="#" onclick="changeLanguage('mg'); closeNav();">Malagasy</a>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2 data-fr="À Propos de Moi" data-en="About Me" data-mg="Momba Ahy">À Propos de Moi</h2>
+            <p data-fr="Bonjour ! Je suis John Doe, un individu enthousiaste avec une passion grandissante pour l'informatique. Bien que je sois nouveau dans ce domaine, je suis déterminé à apprendre et à appliquer la technologie pour résoudre des problèmes concrets. Mon parcours en [domaine précédent/éducation] m'a doté de compétences précieuses que je suis impatient d'appliquer dans le monde de l'informatique."
+               data-en="Hello! I'm John Doe, an enthusiastic individual with a growing passion for informatics. While I'm new to the field, I'm committed to learning and applying technology to solve real-world problems. My background in [previous field/education] has equipped me with valuable skills that I'm excited to apply in the world of informatics."
+               data-mg="Salama! Izaho dia John Doe, olona feno faharisihana manana fitiavana mitombo ho an'ny informatika. Na dia vaovao amin'ity sehatra ity aza aho, dia vonona ny hianatra sy hampihatra ny teknolojia hamahana olana eo amin'ny tontolo iainana. Ny fianarana [sehatra teo aloha / fianarana] dia nanome ahy fahaiza-manao sarobidy izay faly aho hampihatra amin'ny tontolon'ny informatika.">
+                Bonjour ! Je suis John Doe, un individu enthousiaste avec une passion grandissante pour l'informatique. Bien que je sois nouveau dans ce domaine, je suis déterminé à apprendre et à appliquer la technologie pour résoudre des problèmes concrets. Mon parcours en [domaine précédent/éducation] m'a doté de compétences précieuses que je suis impatient d'appliquer dans le monde de l'informatique.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 data-fr="Compétences" data-en="Skills" data-mg="Fahaiza-manao">Compétences</h2>
+            <ul class="skills-list">
+                <li data-fr="Concepts de Base en Programmation" data-en="Basic Programming Concepts" data-mg="Foto-kevitra Fototra amin'ny Fandaharana">Concepts de Base en Programmation</li>
+                <li data-fr="Résolution de Problèmes" data-en="Problem Solving" data-mg="Famahana Olana">Résolution de Problèmes</li>
+                <li data-fr="Apprentissage Rapide" data-en="Quick Learning" data-mg="Fianarana Haingana">Apprentissage Rapide</li>
+                <li data-fr="Souci du Détail" data-en="Attention to Detail" data-mg="Fitandremana ny Antsipirihany">Souci du Détail</li>
+                <li data-fr="Travail d'Équipe" data-en="Teamwork" data-mg="Fiaraha-miasa">Travail d'Équipe</li>
+                <li data-fr="Communication" data-en="Communication" data-mg="Fifandraisana">Communication</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 data-fr="Parcours d'Apprentissage" data-en="Learning Journey" data-mg="Dian'ny Fianarana">Parcours d'Apprentissage</h2>
+            <p data-fr="Je me concentre actuellement sur :" data-en="I'm currently focusing on:" data-mg="Amin'izao fotoana izao dia mifantoka amin'ny:">Je me concentre actuellement sur :</p>
+            <ul>
+                <li data-fr="L'apprentissage de la programmation Python" data-en="Learning Python programming" data-mg="Fianarana ny fandaharana Python">L'apprentissage de la programmation Python</li>
+                <li data-fr="La compréhension des structures de données et algorithmes de base" data-en="Understanding basic data structures and algorithms" data-mg="Fahatakarana ny rafitra data sy algoritma fototra">La compréhension des structures de données et algorithmes de base</li>
+                <li data-fr="L'exploration des fondamentaux du développement web" data-en="Exploring web development fundamentals" data-mg="Fikarohana ny fototra amin'ny fampandrosoana tranokala">L'exploration des fondamentaux du développement web</li>
+                <li data-fr="L'étude des concepts de bases de données" data-en="Studying database concepts" data-mg="Fianarana ny foto-kevitry ny tahiry angona">L'étude des concepts de bases de données</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 data-fr="Projets" data-en="Projects" data-mg="Tetikasa">Projets</h2>
+            <p data-fr="Comme je débute tout juste mon parcours en informatique, je n'ai pas encore de projets terminés à présenter. Cependant, je travaille sur de petits exercices et défis pour développer mes compétences. Je suis impatient de m'attaquer à des projets plus conséquents à mesure que je continue d'apprendre et de progresser."
+               data-en="As I'm just starting my journey in informatics, I don't have completed projects to showcase yet. However, I'm working on small exercises and challenges to build my skills. I'm excited to take on more substantial projects as I continue to learn and grow."
+               data-mg="Satria vao manomboka ny diako amin'ny informatika aho, dia tsy mbola manana tetikasa vita azo aseho. Na izany aza, dia miasa amin'ny fampiasana sy fanamby kely aho mba hanatsarana ny fahaiza-manaoko. Faly aho ny handray anjara amin'ny tetikasa lehibe kokoa rehefa manohy mianatra sy mitombo aho.">
+                Comme je débute tout juste mon parcours en informatique, je n'ai pas encore de projets terminés à présenter. Cependant, je travaille sur de petits exercices et défis pour développer mes compétences. Je suis impatient de m'attaquer à des projets plus conséquents à mesure que je continue d'apprendre et de progresser.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 data-fr="Contact" data-en="Contact" data-mg="Fifandraisana">Contact</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong data-fr="Email" data-en="Email" data-mg="Mailaka">Email</strong><br>
+                    john.doe@email.com
+                </div>
+                <div class="contact-item">
+                    <strong>LinkedIn</strong><br>
+                    [Votre URL LinkedIn]
+                </div>
+                <div class="contact-item">
+                    <strong>GitHub</strong><br>
+                    [Votre nom d'utilisateur GitHub]
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-fr],[data-en],[data-mg]').forEach(elem => {
+                if (elem.hasAttribute(`data-${lang}`)) {
+                    elem.textContent = elem.getAttribute(`data-${lang}`);
+                }
+            });
+            document.documentElement.lang = lang;
+
+            const titles = {
+                'fr': 'John Doe - Portfolio',
+                'en': 'John Doe - Portfolio',
+                'mg': 'John Doe - Portfolio'
+            };
+            document.title = titles[lang];
+        }
+
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+
+        // Appliquer la langue par défaut au chargement de la page
+        document.addEventListener('DOMContentLoaded', () => {
+            changeLanguage('fr');
+        });
+    </script>
