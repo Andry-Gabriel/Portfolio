@@ -1,7 +1,7 @@
 # Portfolio
 Andry Gabriel
 
-Miarahaba ny mpamaky, 
+Miarahaba ny tompoko, 
 
 Ity no natao dia mba hisantatrana ny tetikasa fanehoana traikefa ny tenako manokana. 
 
